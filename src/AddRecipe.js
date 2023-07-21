@@ -18,6 +18,7 @@ import {
 } from 'react-router-dom';
 // import {Home} from './Home.js';
 import ShoppingList from './ShoppingList.js';
+import Contacts from './Contacts.js';
 
 const suggestionsState = atom({
   key: 'Band Suggestions Visible?',
@@ -83,6 +84,7 @@ function SuggestionsField({addStep, addIng, addTip}) {
       let ings = getTokens('@', value)
       if (ings.length > 0) {
         addIng(ings)
+        // ShoppingList().addItem(ings)
       }
 
       let tips = getTokens('#', value)
@@ -237,7 +239,7 @@ function App() {
         {/* <Link to = '/' element = {<Home/>}></Link> */}
         <Link to = '/shopping_list' element = {<ShoppingList/>}><button className = "list-btn"><img className= "list" src = {list} alt = "list"/></button></Link>
         <button className = "add-btn"><img className = "add" src = {plus} alt = "add"/></button>
-        <button className = "people-btn"><img className = "people" src = {people} alt = "contacts"/></button>
+        <Link to = '/contacts' element = {<Contacts/>}><button className = "people-btn"><img className = "people" src = {people} alt = "contacts"/></button></Link>
       </div>
     </div>
   );

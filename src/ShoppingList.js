@@ -10,9 +10,60 @@ import {
   from 'react-router-dom';  
 import AddRecipe from './AddRecipe.js';
 import icon from './icon.svg';
+import Select from 'react-select';
+import makeAnimated from 'react-select/animated'
+import Contacts from './Contacts.js';
+
+const animatedComponents = makeAnimated();
 
 function Item({ item, index, complete, remove }) {
-    const[val, setVal] = useState(50);
+    //const[val, setVal] = useState(50);\
+    const [opt, setOpt] = useState("");
+
+    const options = [
+        {value:'scarce', label:'Scarce'},
+        {value:'enough', label: 'Enough'},
+        {value: 'plenty', label: 'Plenty'}
+    ]
+
+    const handleChange = (selectedOption) => {
+        if (selectedOption.value === 'plenty') {
+            setOpt("P");
+        }
+        else if (selectedOption.value === 'enough') {
+            setOpt("E");
+        }
+        else if (selectedOption.value === 'scarce'){
+            setOpt("S");
+        }
+        return opt;
+    }
+    console.log(opt);
+    const customStyles = {
+        opt,
+        option: (provided, state) => ({
+          ...provided,
+           color: state.isSelected ? 'white' : 'black',
+          backgroundColor: state.isSelected ? 'green' : 'white'
+        // backgroundColor: (opt === "P") ? (console.log(opt)) : "lavender"
+        }),
+        control: (provided) => ({
+          ...provided,
+          marginTop: "10px",
+          color: 'yellow',
+          width: '200px',
+          fontSize: '15px',
+          fontFamily: 'Voltaire',
+          height: '20px',
+          border: '2px solid #aae0ec',
+          minHeight: '40px',
+        })
+      }
+
+    const MyComponent = () => (
+        <Select placeholder = 'Quantity' options={options}  onChange = {handleChange} components={animatedComponents} styles={customStyles}/>
+      )
+
     return (
         <tr className='item-parent'>
         <td
@@ -24,7 +75,7 @@ function Item({ item, index, complete, remove }) {
             </td>
             <td><button className = "remove" onClick={() => remove(index)}>Delete</button></td>
             <td><button className = "complete" onClick={() => complete(index)}>Bought</button></td>
-            <div className='slidecontainer'>
+            {/* <div className='slidecontainer'>
                 <span className='scarce'>Scarce</span>
             <input
                 type="range"
@@ -35,13 +86,19 @@ function Item({ item, index, complete, remove }) {
                 className='slider'
                 />
                 <span className='plenty'>Plenty</span>
-            </div>
+            </div> */}
+            <td className='inventory'>
+                <MyComponent/>
+                {/* <button className='buttonLow'>Scarce</button>
+                <button className='buttonMid'>Enough</button>
+                <button className='buttonHigh'>Plenty</button> */}
+            </td>
             </tr>
         
     );
 }
 
-export function AddItem({ addItem }) {
+ function AddItem({ addItem }) {
     const [value, setValue] = useState("");
 
     const handleSubmit = e => {
@@ -65,8 +122,7 @@ export function AddItem({ addItem }) {
     );
 }
 
-function ShoppingList() {
-    
+ function ShoppingList() {
     let imageStyle = {
         backgroundImage:
           'url("https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg")',
@@ -76,11 +132,15 @@ function ShoppingList() {
     };
 
     const [items, setItems] = useState([]);
+    
     const addItem = title => {
         const newItems = [...items, { title, completed: false }];
         setItems(newItems);
+        
     };
 
+    // const addItem = addItemGenerator(setItems, items)
+    
     const complete = index => {
         const newItems = [...items];
         newItems[index].completed = true;
@@ -136,7 +196,7 @@ function ShoppingList() {
                 </Routes> */}
                 <button className = "list-btn"><img className= "list" src = {list} alt = "list" /></button>
                 <Link to="/add_recipe" element = {<AddRecipe/>}><button className = "add-btn"><img className = "add" src = {plus} alt = "add"/></button></Link>                
-                <button className = "people-btn"><img className = "people" src = {people} alt = "contacts"/></button>
+                <Link to = '/contacts' element = {<Contacts/>}><button className = "people-btn"><img className = "people" src = {people} alt = "contacts"/></button></Link>
             </div>
         </div>
     );

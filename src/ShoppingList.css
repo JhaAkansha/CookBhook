@@ -69,6 +69,12 @@
   color: white;
 }
 
+.inventory {
+  padding-top: 5px;
+  display: table-cell;
+  padding-left:30px;
+} 
+
 .slidecontainer {
   display: flex;
   width: 100%;

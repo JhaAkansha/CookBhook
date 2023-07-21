@@ -13,6 +13,7 @@ import {Link} from 'react-router-dom';
 // from 'react-router-dom';  
 import AddRecipe from './AddRecipe';
 import ShoppingList from './ShoppingList';
+import Contacts from './Contacts';
 
 function Home() {
     
@@ -53,7 +54,7 @@ function Home() {
                 <Link to="/shopping_list" element = {<ShoppingList/>}><button className = "list-btn"><img className= "list" src = {list} alt = "list" /></button>
 </Link>
                 <Link to="/add_recipe" element = {<AddRecipe/>}><button className = "add-btn"><img className = "add" src = {plus} alt = "add"/></button></Link> 
-                <button className = "people-btn"><img className = "people" src = {people} alt = "contacts"/></button>
+                <Link to="/contacts" element = {<Contacts/>}><button className = "people-btn"><img className = "people" src = {people} alt = "contacts"/></button></Link>
             </div>
         </div>
         

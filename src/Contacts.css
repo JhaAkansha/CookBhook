@@ -1,0 +1,184 @@
+.App {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #FFFFFF;
+  }
+  
+  .App-header {
+    box-sizing: border-box;
+    position: relative;
+    height: 40%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+  }
+  
+  .title {
+    position: absolute;
+    height: 100%;
+    left: 45%;
+    right: 50%;
+  
+    font-family: 'Voltaire';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 90%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  
+    color: #000000;  
+  }
+  
+  .popup {
+    position: absolute;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    display: "flex";
+    justify-content: "center";
+    align-items: "center";
+  }
+  
+  .popup-content {
+    position: absolute;
+    display: "flex";
+    justify-content: "center";
+    align-items: "center";
+    background: #E1EFF2;
+    justify-content: center;
+    padding: 5px;
+  }
+  
+  .popup-arrow {
+    color: #e1eff200;
+  }
+  [role='tooltip'].popup-content {
+    width: 200px;
+    box-shadow: rgba(0, 0, 0, 0.16) 10px 10px 30px;
+  }
+  
+  .popup-overlay {
+    background: rgb(103, 248, 0);
+  }
+  [data-popup='tooltip'].popup-overlay {
+    background:rgba(0, 0, 0, 0.423);
+  }
+  .name, .number {
+  padding: 3px;
+  outline: none;
+  }
+  
+  .user {
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 10px;
+    height: 20px;
+    width: 20px;
+  }
+  
+  .contacts-control {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+  }
+  
+  .addBtn {
+    margin-top: 10px;
+    margin-left: 40%;
+    border-width: 3px;
+    border-color: #aae0ec;
+    background-color: white;
+  }
+  
+  .add-user-btn {
+    margin-top: 5%;
+    border-width: 3px;
+    border-color: #aae0ec;
+    background-color: white;
+  }
+  
+  .remove-user-btn {
+    margin-top: 5%;
+    margin-left: 3%;
+    border-width: 3px;
+    background-color: white;
+    border-color: #aae0ec;
+  }
+  
+  .add-user {
+    padding: 5px;
+    border-radius: 10px;
+    height: 50px;
+    width: 50px;
+  }
+  
+  .remove-user {
+    padding: 3px;
+    border-radius: 10px;
+    height: 15px;
+    width: 15px;
+  }
+  
+  .bottom {
+    box-sizing: border-box;
+    position: relative;
+    background: #E1EFF2;
+    border-radius: 2px;
+  }
+  
+  .list {
+    box-sizing: border-box;
+    position: relative;
+    width: 64px;
+    height: 64px;
+    left: 2%;
+    right: 2%;
+    top: 4%;
+    padding: 5px;
+  }
+  
+  .list-btn {
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    background: #E1EFF2;
+    position: relative;
+    left: 20%;
+    top: 5%;
+  }
+  
+  .add {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    left: 1%;
+    top: 5%;
+    padding: 5px;
+  }
+  
+  .add-btn {
+    justify-content: center;
+    align-items: center;
+    background: #E1EFF2;
+    position: relative;
+    left: 40%;
+    top: 5%;
+  }
+  
+  .people {
+    position: relative;
+    width: 54px;
+    height: 54px;
+    top: 10%;
+    padding: 5px;
+  }
+  
+  .people-btn {
+    background: #E1EFF2;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    left: 60%;
+    top: 5%;
+  }
